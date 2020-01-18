@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Hidden } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '../../../components/Table';
 import VisibilityIcon from '@material-ui/icons/VisibilityOutlined';
@@ -113,10 +113,19 @@ export default function Quizzes() {
   return (
     <div className="quizzes">
       <Grid container justify="flex-start">
-        <Grid item lg={2} sm={4} xs={4}>
+        <Grid item lg={2} sm={4} xs={8}>
           <h5 className="heading">Quizzes</h5>
         </Grid>
-        <Grid item lg={8} sm={10} xs={10}>
+        <Hidden only={['lg', 'sm']}>
+          <Grid xs={4} style={{ marginTop: 30 }}>
+            <div className={classes.actionsIcon}>
+              <PrintIcon style={{ cursor: 'pointer' }} />
+              &nbsp;&nbsp;
+              <InsertDriveFileIcon style={{ cursor: 'pointer' }} />
+            </div>
+          </Grid>
+        </Hidden>
+        <Grid item lg={8} sm={10} xs={12}>
           <Grid container justify="center" style={{ marginTop: 22 }}>
             <Grid item lg={6} sm={8} xs={8}>
               <SearchBar />
@@ -126,13 +135,15 @@ export default function Quizzes() {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={2} style={{ marginTop: 30 }}>
-          <div className={classes.actionsIcon}>
-            <PrintIcon style={{ cursor: 'pointer' }} />
-            &nbsp;&nbsp;
-            <InsertDriveFileIcon style={{ cursor: 'pointer' }} />
-          </div>
-        </Grid>
+        <Hidden only={['xs']}>
+          <Grid item lg={2} sm={2} style={{ marginTop: 30 }}>
+            <div className={classes.actionsIcon}>
+              <PrintIcon style={{ cursor: 'pointer' }} />
+              &nbsp;&nbsp;
+              <InsertDriveFileIcon style={{ cursor: 'pointer' }} />
+            </div>
+          </Grid>
+        </Hidden>
         <Grid item xs={12} style={{ marginTop: 30 }}>
           <Table
             thStyle={{ borderBottom: 'none' }}
