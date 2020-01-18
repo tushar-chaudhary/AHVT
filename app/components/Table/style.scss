@@ -1,0 +1,29 @@
+@media only screen and (max-width: 1500px) {
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  table {
+    display: block;
+    overflow-x: scroll;
+    white-space: nowrap;
+
+  }
+
+
+
+
+
+  td {
+    border: none;
+    position: relative;
+  }
+
+
+}
